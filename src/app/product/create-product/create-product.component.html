@@ -1,0 +1,65 @@
+<form #productForm="ngForm" appIdentityRevealed appearance="fill">
+    <div [hidden]="productForm.submitted">
+        <div class="cross-validation" [class.cross-validation-error]="productForm.errors?.['identityRevealed'] && 
+        (productForm.touched || productForm.dirty)">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input class="form-control" type="name" ngModel name="name" required #name="ngModel">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description: </label>
+                <input input class="form-control" type="description" ngModel name="description" required #description="ngModel">
+                <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+                    <div *ngIf="description.errors?.['required']">
+                        Descritpion is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="category">Category: </label>
+                <input input class="form-control" type="category" ngModel name="category" required #category="ngModel">
+                <div *ngIf="category.invalid && (category.dirty || category.touched)" class="alert">
+                    <div *ngIf="category.errors?.['required']">
+                        Category is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price">Price: </label>
+                <input input class="form-control" type="price" ngModel name="price" required #price="ngModel">
+                <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert">
+                    <div *ngIf="price.errors?.['required']">
+                        Price is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">Image: </label>
+                <input input class="form-control" type="image1" ngModel name="image" required #image="ngModel">
+                <div *ngIf="image.invalid && (image.dirty || image.touched)" class="alert">
+                    <div *ngIf="image.errors?.['required']">
+                        Product image is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="coordinates">Coordinates: </label>
+                <input input class="form-control" type="coordinates" ngModel name="coordinates" required #coordinates="ngModel">
+                <div *ngIf="coordinates.invalid && (coordinates.dirty || coordinates.touched)" class="alert">
+                    <div *ngIf="coordinates.errors?.['required']">
+                        Coordinates is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<button [disabled]="!productForm.valid" mat-raised-button color="primary" type="button"
+    (click)="addProduct(productForm)" style="margin-right: 5px; margin-top: 10px;"
+    [disabled]="productForm.invalid">Create</button>
+<button mat-raised-button color="warn" type="button" (click)="onClickGoBack()" style="margin-top: 10px;">Back</button>

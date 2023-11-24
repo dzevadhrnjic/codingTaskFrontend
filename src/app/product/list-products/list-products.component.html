@@ -1,0 +1,45 @@
+<mat-form-field class="buttons-filter">
+    <mat-label>Order: </mat-label>
+    <mat-select [(ngModel)]="order" name="order"> 
+        <mat-option ngDefaultControl value="asc">Newest</mat-option>
+        <mat-option ngDefaultControl value="desc">Oldest</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field class="buttons-filter" style="margin-left: 5px;">
+    <mat-label>Product Name</mat-label>
+    <input matInput placeholder="productName" [(ngModel)]="productName">
+</mat-form-field>
+
+<button mat-raised-button color="primary" style="margin-left: 10px; margin-bottom: 25px;" (click)="getProducts()">search</button>
+
+<table class="table" >
+    <thead>
+        <tr class="columns-product">
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody class="columns-product">
+        <tr *ngFor="let product of products">
+            <th scope="row">{{ product.name }}</th>
+            <td> {{ product.description }} </td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.price }}</td>
+            <td><button class="buttons-product" mat-raised-button color="primary" (click)="onClickSeeProductDetails(product.id)">Details</button></td>
+            <td><button class="buttons-product" mat-raised-button color="accent" (click)="onClickEditProduct(product)">Edit</button></td>
+            <td><button class="buttons-product" mat-raised-button color="warn" (click)="onClickDeleteProduct(product.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+    <div role="group" style="margin-top: 10px;">
+        <button class="buttons-product" mat-raised-button color="accent" [disabled]="pageNumber < 1"(click)="previousPage()">previous</button>
+        <button class="buttons-product" mat-raised-button color="warn" (click)="nextPage()" style="margin-left: 5px;">next</button>
+    </div>

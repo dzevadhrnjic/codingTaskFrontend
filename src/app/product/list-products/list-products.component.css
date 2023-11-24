@@ -1,0 +1,27 @@
+.menu-button {
+    margin-top: 5px;
+    width: 100px;
+}
+
+.button-create {
+    margin-left: 10px;
+    width: 150px;
+}
+
+.buttons-product {
+    width: 91px;
+    padding: 0%;
+}
+
+.product-item-wrapper img{
+    height: 80px;
+}
+
+.columns-product {
+    text-align: center;
+}
+
+.buttons-filter {
+    width: 200px;
+    height: 70px;
+}

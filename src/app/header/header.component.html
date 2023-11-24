@@ -1,0 +1,45 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 20px;" *ngIf="isAuthenticated">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSuportedContent" mdbCollapse>
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="isAuthenticated" [routerLink]="'products'">Products</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="isAuthenticated" [routerLink]="'categories'">Category</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                *ngIf="isAuthenticated">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <ul class="navbar-nav text-right">
+                    <li *ngIf="isAuthenticated">
+                        <button mat-button mat-stroked-button color="primary" type="button" style="margin-right: 5px;"
+                            class="menu-button" (click)="onClickCreateProduct()">Add Product</button>
+                    </li>
+                    <li *ngIf="isAuthenticated">
+                        <button mat-button mat-stroked-button color="accent" type="button" style="margin-right: 5px;"
+                            class="menu-button" (click)="onClickCreateCategory()">Add Category</button>
+                    </li> 
+                    <li *ngIf="isAuthenticated">
+                        <button mat-button mat-stroked-button color="warn" type="button" style="margin-right: 5px;"
+                            class="menu-button" (click)="onClickGetClosestProducts()">Closest Products</button>
+                    </li>
+                    <li *ngIf="isAuthenticated">
+                        <button mat-button mat-stroked-button color="warn" type="button" style="margin-right: 5px;"
+                            class="menu-button" (click)="onClickLogout()">Logout</button>
+                    </li>
+                </ul>
+            </mat-menu>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,22 @@
+<table class="table" >
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories">
+            <th scope="row">{{ category.name }}</th>
+            <td><button class="buttons-product" mat-raised-button color="accent" (click)="onClickEditCategory(category)">Edit</button></td>
+            <td><button class="buttons-product" mat-raised-button color="warn" (click)="onClickDeleteCategory(category.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+    <div role="group" style="margin-top: 10px;">
+        <button class="buttons-product" mat-raised-button color="accent" [disabled]="pageNumber < 1"(click)="previousPage()">previous</button>
+        <button class="buttons-product" mat-raised-button color="warn" (click)="nextPage()" style="margin-left: 5px;">next</button>
+    </div>

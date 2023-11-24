@@ -1,0 +1,54 @@
+<div class="row" *ngIf="login" (keyup.enter)="onSubmit(userLoginForm)">
+    <div class="col-cs-12 col-md-6 col-md-offser-3">
+        <form class="login" #userLoginForm="ngForm" appIdentityRevealed>
+            <div [hidden]="userLoginForm.submitted">
+                <div class="cross-validation" [class.cross-validation-error]="userLoginForm.errors?.['identityRevealed'] && 
+        (userLoginForm.touched || userLoginForm.dirty)">
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input class="form-control" type="email" id="email" ngModel name="email" required email
+                            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" minlength="3" maxlength="30"
+                            #email="ngModel">
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                            <div *ngIf="email.errors?.['required']">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors?.['minlength']">
+                                Email must be at least 2 character, and to have @.
+                            </div>
+                            <div *ngIf="email.errors?.['maxlength']">
+                                Email is too long, maximum is 100 characters.
+                            </div>
+                            <div *ngIf="email.errors?.['pattern']">
+                                Wrong pattern. Example: 'mail@mail.com'.
+                            </div>
+                        </div>
+                    </div>
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" id="password" ngModel name="password" required password
+                        minlength="5" maxlength="20" #password="ngModel">
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+                        <div *ngIf="password.errors?.['required']">
+                            Password is required
+                        </div>
+                        <div *ngIf="password.errors?.['minlength']">
+                            Password must be at least 5 characters
+                        </div>
+                        <div *ngIf="password.errors?.['maxlength']">
+                            Password is too long, maximum is 20 characters
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div>
+                            <button [disabled]="!userLoginForm.valid" mat-raised-button color="primary" type="button"
+                                style="margin-right: 5px;" (click)="onSubmit(userLoginForm)">Login</button>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="error" style="margin-top: 10px; text-align: center;">
+                            <p>Invalid email or password, try again </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

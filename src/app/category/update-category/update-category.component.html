@@ -1,0 +1,19 @@
+<form #categoryForm="ngForm" appIdentityRevealed appearance="fill">
+    <div [hidden]="categoryForm.submitted">
+        <div class="cross-validation" [class.cross-validation-error]="categoryForm.errors?.['identityRevealed'] && 
+        (categoryForm.touched || categoryForm.dirty)">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input class="form-control" type="name" ngModel name="name" required [(ngModel)]="name" #Name="ngModel">
+                <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="alert">
+                    <div *ngIf="Name.errors?.['required']">
+                        Name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<button [disabled]="!categoryForm.valid" mat-raised-button color="primary" type="button"
+    (click)="updateCategory(categoryForm)" style="margin-right: 5px; margin-top: 10px;">Create</button>
+<button mat-raised-button color="warn" type="button" (click)="onClickGoBack()" style="margin-top: 10px;">Back</button>

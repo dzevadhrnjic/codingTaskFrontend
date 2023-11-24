@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent {
-  
+
   productid!: number
   name: string = ''
   description: string = ''
@@ -19,7 +19,7 @@ export class UpdateProductComponent {
   price!: number
   image: string = ''
 
-  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -32,7 +32,7 @@ export class UpdateProductComponent {
         this.category = response.category
         this.price = response.price
         this.image = response.image
-        response.views -1
+        response.views - 1
       })
     })
   }

@@ -43,7 +43,7 @@ export class ListCategoriesComponent {
     this.categoryService.deleteCategory(id).subscribe({
       next: () => {
         alert('Category deleted'),
-        this.categoryService.dataRefreshed.next(true)
+          this.categoryService.dataRefreshed.next(true)
       },
       error: () => alert('Something went wrong')
     })

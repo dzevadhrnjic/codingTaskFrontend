@@ -18,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         if (!user) {
           return next.handle(request);
         }
-          const modifiedRequest = request.clone({
+        const modifiedRequest = request.clone({
           headers: request.headers.set("Authorization", `${user.accessToken}`)
         })
         return next.handle(modifiedRequest)

@@ -19,7 +19,7 @@ export class CategoryService {
     let params = new HttpParams();
     params = params.append('pageNumber', String(pageNumber))
     params = params.append('pageSize', String(pageSize))
-    return this.httpClient.get<Category[]>(this.url, { params: params})
+    return this.httpClient.get<Category[]>(this.url, { params: params })
   }
 
   getCategory(id: number) {

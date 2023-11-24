@@ -13,26 +13,30 @@ import { AuthGuard } from "./auth/auth.guard";
 import { AuthComponent } from "./auth/auth.component";
 import { ClosestProductsComponent } from "./product/closest-products/closest-products.component";
 
-const appRoutes: Routes = [ 
+const appRoutes: Routes = [
     { path: 'auth', component: AuthComponent },
-    { path: '', redirectTo: 'auth', pathMatch: 'full'},
-    { path: 'products', component: ProductComponent, canActivate: [AuthGuard], children: [
-        { path: '', component: ListProductsComponent},
-        { path: 'productDetails/:id', component: ProductDetailsComponent},
-        { path: 'updateProduct/:id', component: UpdateProductComponent }
-    ]},
-    { path: 'categories', component: CategoryComponent, canActivate: [AuthGuard], children: [
-        { path: '', component: ListCategoriesComponent },
-        { path: 'updateCategory/:id', component: UpdateCategoryComponent }
-    ]},
+    { path: '', redirectTo: 'auth', pathMatch: 'full' },
+    {
+        path: 'products', component: ProductComponent, canActivate: [AuthGuard], children: [
+            { path: '', component: ListProductsComponent },
+            { path: 'productDetails/:id', component: ProductDetailsComponent },
+            { path: 'updateProduct/:id', component: UpdateProductComponent }
+        ]
+    },
+    {
+        path: 'categories', component: CategoryComponent, canActivate: [AuthGuard], children: [
+            { path: '', component: ListCategoriesComponent },
+            { path: 'updateCategory/:id', component: UpdateCategoryComponent }
+        ]
+    },
     { path: 'newProduct', component: CreateProductComponent, canActivate: [AuthGuard] },
-    { path: 'newCategory', component: CreateCategoryComponent, canActivate: [AuthGuard]},
+    { path: 'newCategory', component: CreateCategoryComponent, canActivate: [AuthGuard] },
     { path: 'closestProducts', component: ClosestProductsComponent, canActivate: [AuthGuard] }
 ]
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule{
+export class AppRoutingModule {
 
 }

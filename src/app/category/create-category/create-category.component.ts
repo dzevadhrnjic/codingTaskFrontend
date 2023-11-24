@@ -13,7 +13,7 @@ export class CreateCategoryComponent {
 
   showForm: boolean = false
 
-  constructor(private categoryService: CategoryService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private categoryService: CategoryService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.categoryService.dataRefreshed.subscribe(form => {

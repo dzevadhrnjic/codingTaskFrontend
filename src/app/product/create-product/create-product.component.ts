@@ -26,7 +26,8 @@ export class CreateProductComponent {
     const value = form.value
 
     const priceHistory = new HistoryPrice(value.productid, value.price)
-    var createProduct = new CreateProduct(value.name, value.description, value.category, value.price, value.views, value.image, value.coordinates, priceHistory)
+    var createProduct = new CreateProduct(value.name, value.description, value.category,
+      value.price, value.views, value.image, value.coordinates, priceHistory)
     this.productService.addProduct(createProduct).subscribe({
       next: () => { alert('Product created'), this.router.navigate(['products']) },
       error: (error) => (alert(error.error))

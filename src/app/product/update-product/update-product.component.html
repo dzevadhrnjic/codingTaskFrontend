@@ -13,7 +13,8 @@
             </div>
             <div class="form-group">
                 <label for="description">Description: </label>
-                <input input class="form-control" type="description" ngModel name="description" required [(ngModel)]="description" #Description="ngModel">
+                <input input class="form-control" type="description" ngModel name="description" required
+                    [(ngModel)]="description" #Description="ngModel">
                 <div *ngIf="Description.invalid && (Description.dirty || Description.touched)" class="alert">
                     <div *ngIf="Description.errors?.['required']">
                         Descritpion is required
@@ -22,7 +23,8 @@
             </div>
             <div class="form-group">
                 <label for="category">Category: </label>
-                <input input class="form-control" type="category" ngModel name="category" required [(ngModel)]="category" #Category="ngModel">
+                <input input class="form-control" type="category" ngModel name="category" required
+                    [(ngModel)]="category" #Category="ngModel">
                 <div *ngIf="Category.invalid && (Category.dirty || Category.touched)" class="alert">
                     <div *ngIf="Category.errors?.['required']">
                         Category is required
@@ -31,7 +33,8 @@
             </div>
             <div class="form-group">
                 <label for="price">Price: </label>
-                <input input class="form-control" type="price" ngModel name="price" required [(ngModel)]="price" #Price="ngModel">
+                <input input class="form-control" type="price" ngModel name="price" required [(ngModel)]="price"
+                    #Price="ngModel">
                 <div *ngIf="Price.invalid && (Price.dirty || Price.touched)" class="alert">
                     <div *ngIf="Price.errors?.['required']">
                         Price is required
@@ -40,7 +43,8 @@
             </div>
             <div class="form-group">
                 <label for="image">Image: </label>
-                <input input class="form-control" type="image1" ngModel name="image" required [(ngModel)]="image" #Image="ngModel">
+                <input input class="form-control" type="image1" ngModel name="image" required [(ngModel)]="image"
+                    #Image="ngModel">
                 <div *ngIf="Image.invalid && (Image.dirty || Image.touched)" class="alert">
                     <div *ngIf="Image.errors?.['required']">
                         Product image is required

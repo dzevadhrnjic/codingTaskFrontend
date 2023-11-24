@@ -18,11 +18,11 @@ export class ListProductsComponent {
   order!: string
   productName: string = '';
 
-  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.productService.dataRefreshed.subscribe(data => {
-      if(data) {
+      if (data) {
         this.getProducts()
       }
     })
@@ -31,10 +31,10 @@ export class ListProductsComponent {
   }
 
   getProducts() {
-    this.productService.getProducts(this.pageNumber, this. pageSize, this.order, this.productName).subscribe({
-        next: (response) => { this.products = response, console.log(response)},
-        error: (error) => { alert('Something went wrong') }
-       })
+    this.productService.getProducts(this.pageNumber, this.pageSize, this.order, this.productName).subscribe({
+      next: (response) => { this.products = response, console.log(response) },
+      error: (error) => { alert('Something went wrong') }
+    })
   }
 
   onClickSeeProductDetails(id: number) {
@@ -42,15 +42,16 @@ export class ListProductsComponent {
   }
 
   onClickEditProduct(product: Product) {
-    this.router.navigate(['updateProduct/', product.id], { relativeTo: this.route})
+    this.router.navigate(['updateProduct/', product.id], { relativeTo: this.route })
   }
 
   onClickDeleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe({
       next: () => {
-        alert('Product deleted')
+        alert('Product deleted'),
+        this.productService.dataRefreshed.next(true)
       },
-      error: () => { alert("Can't delete product" )}
+      error: () => { alert("Can't delete product") }
     })
   }
 

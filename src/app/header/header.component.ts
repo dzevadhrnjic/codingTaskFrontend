@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../services/product.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +15,7 @@ export class HeaderComponent {
   isAuthenticated = false;
   private userSubscription: Subscription = new Subscription;
 
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.userSubscription = this.authService.user.subscribe(user => {

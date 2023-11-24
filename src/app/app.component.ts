@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
 
-    if(this.authService.user != null){
-    this.authService.autoLogin();
-    }else{
+    if (this.authService.user != null) {
+      this.authService.autoLogin();
+    } else {
       this.router.navigate(['/auth'])
     }
   }

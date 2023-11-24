@@ -18,7 +18,7 @@ export class AuthComponent {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
   onSubmit(form: NgForm) {

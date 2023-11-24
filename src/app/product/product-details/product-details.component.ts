@@ -13,12 +13,12 @@ export class ProductDetailsComponent {
   product!: Product
   products: Product[] = []
 
-  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params): void => {
       const id = +params['id']
-      if (!isNaN(id)) {       
+      if (!isNaN(id)) {
         this.getProductDetails(id);
       }
     })
@@ -31,7 +31,7 @@ export class ProductDetailsComponent {
         this.products = []
         this.products.push(response)
       },
-      error: error => { alert(error.eror)}
+      error: error => { alert(error.eror) }
     })
   }
 }

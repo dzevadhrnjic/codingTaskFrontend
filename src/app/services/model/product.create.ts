@@ -9,15 +9,15 @@ export class CreateProduct {
     priceHistory: HistoryPrice
 
 
-    constructor(name: string, description: string, category: number, price: number, views: number, 
+    constructor(name: string, description: string, category: number, price: number, views: number,
         image: string, coordinates: string, priceHistory: HistoryPrice
-        ) {
+    ) {
         this.name = name
         this.description = description
         this.category = category
         this.price = price
         this.views = views
-        this.image = image       
+        this.image = image
         this.coordinates = coordinates
         this.priceHistory = priceHistory
     }

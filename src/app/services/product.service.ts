@@ -24,7 +24,7 @@ export class ProductService {
     params = params.append('order', order)
     params = params.append('productName', productName)
 
-    return this.httpClient.get<Product[]>(this.url , { params: params })
+    return this.httpClient.get<Product[]>(this.url, { params: params })
   }
 
   getProduct(id: number) {
@@ -35,7 +35,7 @@ export class ProductService {
     let params = new HttpParams()
     params = params.append('coordinates', coordinates)
 
-    return this.httpClient.get<Product[]>(this.url + 'closest' , { params: params })
+    return this.httpClient.get<Product[]>(this.url + 'closest', { params: params })
   }
 
   addProduct(product: CreateProduct) {

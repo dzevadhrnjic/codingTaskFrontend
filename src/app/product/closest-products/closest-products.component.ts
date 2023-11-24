@@ -12,14 +12,14 @@ export class ClosestProductsComponent {
   coordinates: any
   products: Product[] = []
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   getClosestProducts() {
     this.productService.getClosestProducts(this.coordinates).subscribe({
       next: (response) => { this.products = response },
-      error: (error) => { alert( error.errorMessage )}
+      error: (error) => { alert(error.errorMessage) }
     })
   }
 }

@@ -1,5 +1,5 @@
 export class UpdateProduct {
-    
+
     name: string
     description: string
     category: number
@@ -8,14 +8,14 @@ export class UpdateProduct {
     priceHistory: HistoryPriceUpdate
 
 
-    constructor(name: string, description: string, category: number, price: number, 
+    constructor(name: string, description: string, category: number, price: number,
         image: string, priceHistory: HistoryPriceUpdate
-        ) {
+    ) {
         this.name = name
         this.description = description
         this.category = category
         this.price = price
-        this.image = image       
+        this.image = image
         this.priceHistory = priceHistory
     }
 }
